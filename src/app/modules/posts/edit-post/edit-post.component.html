@@ -1,0 +1,32 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+        <form [formGroup]="editPostForm" (ngSubmit)="updatePost(editPostForm)" autocomplete="off" id="editPostForm">
+            <div class="container">
+              <h1>Edit Post</h1>
+              <p>Please fill in this form to add a post.</p>
+              <hr>
+              <div class="sub-class">
+                <label for="email"><b>Title</b></label>
+                <input type="text" formControlName="title" placeholder="Enter title" [maxlength]="maxTitle">
+              </div>
+              <div class="col-sm-3 error-cl" *ngIf="editPostForm.controls['title'].invalid && (editPostForm.controls['title'].dirty || editPostForm.controls['title'].touched)">
+                <small id="passwordHelp" class="text-danger">
+                  Please enter your post title
+                </small>      
+              </div>
+              <div class="sub-class">
+                <label for="psw"><b>Description</b></label>
+                <input type="text" formControlName="description" placeholder="Enter description" [maxlength]="maxDescription">
+              </div>
+              <div class="col-sm-3 error-cl">
+                <small id="desc" class="text-danger" *ngIf="editPostForm.controls['description'].invalid && (editPostForm.controls['description'].dirty || editPostForm.controls['description'].touched)">
+                  Please enter your post description
+                </small>      
+              </div>
+            
+              <div class="clearfix">            
+                <button class="signupbtn" [disabled]="!editPostForm.valid">Add</button>
+              </div>
+            </div>
+          </form>
+    </div>

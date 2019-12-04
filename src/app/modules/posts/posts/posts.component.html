@@ -1,0 +1,15 @@
+<!--search box-->
+<app-search (searchItem)="searchMedia($event)" [disableSearch]="disableSearch" placeHolder="Search"></app-search>
+<!--right navigation-->
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="suggestions__item-title width-class">
+        <h1>All Posts</h1>
+        <div class="repeat-class"  *ngFor="let post of collection.data | paginate: config">
+            <h1 class="font-20 pointer" [routerLink]="['/posts/view-post',post._id]">{{post.title}} <i class="material-icons new-class-delete" [routerLink]="['/posts/edit-post',post._id]">create</i></h1>
+            <p class="font-16">{{post.description}} <i class="material-icons new-class-delete" (click)="deletePost(post._id)">delete</i></p>
+        </div>
+        <div style="text-align:center">
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+    </div>
+</div>

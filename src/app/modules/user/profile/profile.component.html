@@ -1,0 +1,14 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <div class="card" style="clear: both">
+    <img src="http://localhost:3000/api/v1/users/get-profile-image/5dd768511dcc17724417577e/avatar" alt="John" style="width:100%" />
+    <h1>{{profileData.user.name}} {{numbers}}</h1>
+    <p class="title">{{profileData.user.email}}</p>
+    <p class="title">CEO & Founder</p>
+    <p>Harvard University</p>
+    <a href="#"><i class="fa fa-dribbble"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <p><button [routerLink]="['/edit-profile']">Edit Profile</button></p>
+  </div>
+</div>

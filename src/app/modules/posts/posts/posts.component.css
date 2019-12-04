@@ -1,0 +1,19 @@
+.width-class{
+    width:90%;
+}
+.font-20 {
+    font-size: 20px;
+}
+.font-16 {
+    font-size: 16px;
+}
+.new-class-delete{
+    margin-top: -4px;
+    position: absolute;
+    margin-left: 10px;
+    font-size: 31px;
+    cursor: pointer;
+}
+.pointer{
+    cursor: pointer;
+}

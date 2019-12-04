@@ -1,0 +1,30 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="box">
+          <mat-card-header>
+            <mat-card-title>Success</mat-card-title>
+          </mat-card-header>
+
+          <div class="container-fluid">
+            <div class="row">
+                <!--form box-->
+                <div class="form-box">
+                <div class="form-body">
+                    <div class="verification-text">                    
+                        <mat-card-content>
+                            <p>A verification email has been sent to <span>{{ emailForVerificationMessage }}.</span></p><p>Please verify your email to continue.</p>
+                        </mat-card-content>
+                        
+                    </div>                              
+                    <div class="example-button-row">
+                        <button type="button" [routerLink]="[signInUrl]" routerLinkActive="router-link-active" mat-raised-button>Back to sign in</button>
+                    </div>                    
+                </div>
+                </div>
+            </div>
+            </div>
+
+        </mat-card>      
+</div>
+
+
+  

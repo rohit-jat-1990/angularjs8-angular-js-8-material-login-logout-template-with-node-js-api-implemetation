@@ -1,0 +1,6 @@
+<!--search box-->
+<form class="form-inline header-search-cl" #searchForm="ngForm">
+  <input class="form-control input-search" type="search" [placeholder]="placeHolder" aria-label="Search" [disabled]="disableSearch"
+    [(ngModel)]="searchText" (ngModelChange)="search(searchForm)" name="searchText" />
+  <button type="button" class="button-cl" [ngClass]="{'clear-search': clearSearchButton}" (click)="clearSearch(searchForm)">Search</button>
+</form>

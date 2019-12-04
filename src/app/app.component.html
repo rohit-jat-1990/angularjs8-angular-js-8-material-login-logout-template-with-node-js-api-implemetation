@@ -1,0 +1,17 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <div><a href="#" target="_blank" class="positronx">Welcome</a></div>
+  <flash-messages></flash-messages>
+  <span class="nav-tool-items">    
+    <a *ngIf="!(isLoggedIn$ | async)" mat-button [routerLink]="['/login']" routerLinkActive="mat-raised-button">Log in</a>
+    <a *ngIf="!(isLoggedIn$ | async)" mat-button [routerLink]="['/register']" routerLinkActive="mat-raised-button">Register</a>    
+    <button *ngIf="(isLoggedIn$ | async)" mat-button [matMenuTriggerFor]="menu">Posts</button>
+    <mat-menu #menu="matMenu">
+      <button [routerLink]="['/posts/posts']" routerLinkActive="mat-raised-button" mat-menu-item>All Posts</button>
+      <button [routerLink]="['/posts/add-post']" routerLinkActive="mat-raised-button" mat-menu-item>Add Post</button>
+    </mat-menu>     
+    <a *ngIf="(isLoggedIn$ | async)" mat-button [routerLink]="['/profile']" routerLinkActive="mat-raised-button">Profile</a>
+    <a *ngIf="(isLoggedIn$ | async)" mat-button routerLinkActive="mat-raised-button" (click)="logout()">Logout</a>
+  </span>  
+</mat-toolbar>
+<router-outlet></router-outlet>

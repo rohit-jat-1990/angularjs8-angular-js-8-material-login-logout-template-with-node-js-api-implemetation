@@ -1,0 +1,32 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <form [formGroup]="addPostForm" (ngSubmit)="savePost(addPostForm)" autocomplete="off" id="addpostform">
+        <div class="container">
+          <h1>Add Post</h1>
+          <p>Please fill in this form to add a post.</p>
+          <hr>
+          <div class="sub-class">
+            <label for="email"><b>Title</b></label>
+            <input type="text" formControlName="title" placeholder="Enter title" [maxlength]="maxTitle" [appValidateOnBlur]="addPostForm.get('title')">
+          </div>
+          <div class="col-sm-3 error-cl" *ngIf="addPostForm.controls['title'].invalid && (addPostForm.controls['title'].dirty || addPostForm.controls['title'].touched)">
+            <small id="passwordHelp" class="text-danger">
+              Please enter your post title
+            </small>      
+          </div>
+          <div class="sub-class">
+            <label for="psw"><b>Description</b></label>
+            <input type="text" formControlName="description" placeholder="Enter description" [maxlength]="maxDescription" [appValidateOnBlur]="addPostForm.get('description')">
+          </div>
+          <div class="col-sm-3 error-cl">
+            <small id="desc" class="text-danger" *ngIf="addPostForm.controls['title'].invalid && (addPostForm.controls['title'].dirty || addPostForm.controls['title'].touched)">
+              Please enter your post description
+            </small>      
+          </div>
+        
+          <div class="clearfix">            
+            <button class="signupbtn" [disabled]="!addPostForm.valid">Add</button>
+          </div>
+        </div>
+      </form>
+</div>

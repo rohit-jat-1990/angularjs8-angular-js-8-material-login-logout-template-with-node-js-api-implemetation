@@ -1,0 +1,32 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter your full name" [maxlength]="charMaxLength" formControlName="name"
+          [appValidateOnBlur]="registerForm.get('name')">
+          <mat-error *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)" class="alert alert-danger">Please enter your name</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter your email" formControlName="email" [appValidateOnBlur]="registerForm.get('email')">          
+          <mat-error *ngIf="registerForm.controls['email'].invalid">Please enter valid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input type="password" matInput placeholder="Enter your password" formControlName="password" [minlength]="passwordMinLength" [appValidateOnBlur]="registerForm.get('password')">
+          <mat-error *ngIf="registerForm.controls['password'].invalid" class="alert alert-danger">Please enter strong password</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <button mat-flat-button color="primary" class="btn-block" [disabled]="!registerForm.valid">Register</button>
+
+    </form>
+  </mat-card>
+</div>

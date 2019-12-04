@@ -1,0 +1,29 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <div class="card" style="clear: both">
+    <img
+      src="http://localhost:3000/api/v1/users/get-profile-image/5dd768511dcc17724417577e/avatar"
+      alt="John"
+      style="width:100%"
+    />{{res}}
+    <form class="example-form"  enctype="multipart/form-data">
+      <input type="file" type="file" (change)="onFileChanged($event)" name="profile_image" enctype="multipart/form-data" />    
+    </form>
+    <p class="title"></p>
+    <form class="example-form" [formGroup]="editForm" (ngSubmit)="updateProfile(editForm)">
+        <mat-card-content>
+            <mat-form-field class="example-full-width">
+                <input value="{{ profileData.user.name }}" matInput placeholder="Enter your full name" [maxlength]="charMaxLength" formControlName="name"
+                [appValidateOnBlur]="editForm.get('name')">
+                <mat-error *ngIf="editForm.controls['name'].invalid && (editForm.controls['name'].dirty || editForm.controls['name'].touched)" class="alert alert-danger">Please enter your name</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width">
+                <input value="{{ profileData.user.email }}" matInput placeholder="Enter your email" formControlName="email" [appValidateOnBlur]="editForm.get('email')">          
+                <mat-error *ngIf="editForm.controls['email'].invalid">Please enter valid email</mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <button [disabled]="!editForm.valid">Submit</button>
+    </form>
+  </div>
+
+</div>
